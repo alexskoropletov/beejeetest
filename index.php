@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+
 require_once "app/bootstrap.php";
 
-App::show();
+$App->run($_GET['q']);
