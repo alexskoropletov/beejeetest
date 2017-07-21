@@ -1,0 +1,14 @@
+{
+    "name": "alexskoropletov/beejee",
+    "description": "Test MVC app",
+    "require": {
+        "doctrine/orm": "^2.5.5",
+        "twbs/bootstrap": "^3.3"
+    },
+    "authors": [
+        {
+            "name": "Aleksandr Skoropletov",
+            "email": "alex@skoropletov.ru"
+        }
+    ]
+}
