@@ -25,14 +25,14 @@ class TaskModel
         }
 
         $query = $this->db->prepare(
-            'SELECT id, username, email, description, image, status FROM `task` ORDER BY :sort_by :sort_order LIMIT 0, 3'
+            sprintf(
+                'SELECT id, username, email, description, image, status FROM `task` ORDER BY %s %s LIMIT :start, :finish',
+                $sort['sort_by'],
+                $sort['sort_order']
+            )
         );
-        $query->bindValue(":sort_by", $sort['sort_by']);
-        $query->bindValue(":sort_order", $sort['sort_order']);
-        var_dump(($sort['page'] - 1) * $sort['on_page']);
-        var_dump($sort['page'] * $sort['on_page']);
-        $query->bindValue(":start", ($sort['page'] - 1) * $sort['on_page']);
-        $query->bindValue(":finish", $sort['page'] * $sort['on_page']);
+        $query->bindValue(":start", ($sort['page'] - 1) * $sort['on_page'], \PDO::PARAM_INT);
+        $query->bindValue(":finish", $sort['page'] * $sort['on_page'], \PDO::PARAM_INT);
         $query->execute();
 
         return $query->fetchAll(\PDO::FETCH_ASSOC);
