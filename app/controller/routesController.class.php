@@ -47,8 +47,7 @@ class RoutesController
         $route = $this->parseRoute($route);
         $route['on_page'] = $config['list']['on_page'];
         if ($run = $this->routeExists($route['route'])) {
-            $view = new $run['class'];
-            $view->$run['method']($route, $db);
+            $run($route, $db);
         } else {
             throw new \Exception('404 Page not found');
         }

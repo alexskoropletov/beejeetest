@@ -9,18 +9,9 @@ return [
         'charset'  => 'utf8',
     ],
     'routes' => [
-        ''     => [
-            'class'  => '\BeeJeeTest\TaskView',
-            'method' => 'showList',
-        ],
-        'list' => [
-            'class'  => '\BeeJeeTest\TaskView',
-            'method' => 'showList',
-        ],
-        'add'  => [
-            'class'  => '\BeeJeeTest\TaskView',
-            'method' => 'addTask',
-        ],
+        ''     => '\BeeJeeTest\TaskView::showList',
+        'list' => '\BeeJeeTest\TaskView::showList',
+        'add'  => '\BeeJeeTest\TaskView::addTask',
     ],
     'list'   => [
         'on_page' => 3,
